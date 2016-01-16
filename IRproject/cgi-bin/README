@@ -1,0 +1,133 @@
+			Prashanth Reddy Madi
+			10754772
+
+
+copy wordnet present in the following folder into current directory
+/usr/local/nlp/WordNet-1.7.1/dict
+
+I get the error Wide character in print at gettingfiles.pl line 60, <$indata> line 99. while retrieving documents from web. I tried using encode which removes
+this error but it also lefts out retrieving more of pages. i had commented out its usage to get all 3000 web pages. This doesn't effects any of my
+implementation.
+
+
+
+###########################################################################
+Please using the following two commands to get results directly using command line
+
+- perl projectcorpus.pl
+
+             this will do all the offline work such as retrieving documents applying pre-process steps and produces tfidf/ folder
+
+- perl project.pl  {query name}
+
+              this will take query name as input and produces output links
+
+below link works fine with code present
+
+http://students.csci.unt.edu/~prm0080/CGI-Sample/
+
+
+
+############################################################3333
+ Below is the step by step procedure
+
+
+-  perl spider.pl > output  
+      
+         this will print 1000 links into output
+
+- perl gettingfiles.pl output > file1
+
+        this will get all the files related to links in output into a new folder corpus and a new file which has filename in corpus followed by its link name
+
+- perl computingforeachdoc.pl corpus/ htmltagremoved html_tagremove.pl
+
+          this will take input folder and puts tags removed documents in new folder htmltagremoved
+
+- perl computingforeachdoc.pl htmltagremoved/ tokenizedout newtoken.pl
+
+         this will put tokenized output data in tokenzedout of each file in htmltagremoved
+
+- perl computingforeachdoc.pl tokenizedout/ porterout porter_stemmer.pl
+
+         this will put porterstemmer output of each document in tokenizedout into porterout
+
+- perl computingforeachdoc.pl porterout/ wordfreqout wordfrequency.pl
+
+        this will put the frequency of words in each file of porterout in wordfereqout
+
+- perl stopwordremovalforeachdoc.pl wordfreqout/ stopwordout stopwordremoval.pl stopwords
+
+        this will remove all the stopwords and punctuations from each document and places output files in stopwordout
+
+- perl tf_idf.pl stopwordout/
+
+      this will generate tfidf of each document and stores them in tfidf folder 
+      it also generates a storing_doc_distance file which has the distance measure of each document for measuring similarity between documents
+      it also generates inverted which keeps track of all the words present in which documents with second column consisting of the total number of documents for that word 
+###########################################
+this step is required if clustering applied using pre-computed data
+using clustering.pl in below
+
+ -  perl similaritybweachdoc.pl tfidf/ storing_doc_distance
+
+       this will compare each input file with other and puts similarity measure in a folder similarity_docs. This would be useful for clustering documents
+        here it is and adjacency matrix so i would calculate only half i.e 2->1 wont exist as i have 1->2 which would be the same
+
+#####################################################
+
+- chmod 755 *
+
+- chmod 755 tfidf/*
+
+  to give permissions
+
+
+
+-  perl createquerydoc.pl xxxxxx
+
+        xxxxxx represent your input query
+         this will create a new query document
+
+-  perl newtoken.pl query > querytoken
+
+         this will print tokenized data in query to querytoken
+
+-  perl porter_stemmer.pl querytoken > querystem
+
+         this will print porter stemmer output of querytoken into querystem
+
+-  perl wordfrequency.pl querystem > queryfreq
+
+            this will print frequency of each term into queryfrq file
+
+-  perl stopwordremoval.pl queryfreq stopwords > querystop
+
+          this will print the data in queryfreq removing stopwords
+
+-  perl comparing.pl inverted querystop storing_doc_distance tfidf/ docsandlinks
+
+          this will compare querystop with the documents in tfidf and prints their similarity
+
+           produces the above results in the file querysearchresult
+
+###############################################
+perform this if the above mentioned similarity_docs folder is created
+
+-  perl clustering.pl similarity_docs/ querysearchresult 0.6  docsandlinks
+
+         this will cluster documents based on query and puts the result in clusteredlinks file
+     this program does clustering based on previously calculated similarity between each documents
+######################################################
+
+
+
+-  perl directclusterin.pl tfidf/ querysearchresult 0.6  docsandlinks storing_doc_distance
+
+       this clustering method doesnot uses any premeasured files for similarity.
+       this will measure the similarity between files on the fly. This would be better if we cant maintain index of similarity between each and every document
+
+- perl usingword.pl 
+
+       this will intake data in query file and applied wordnet on it to
+extend query. 

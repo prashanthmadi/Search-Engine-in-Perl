@@ -1,0 +1,9 @@
+Prashant Reddy Madi
+
+################
+
+There is another readme file inside cgi-bin folder. that will perform all the command line usage. to make it web based
+
+put the cgi-bin folder as it is in public_html folder along with index.html
+
+and from web browser execute this index.html

@@ -1,0 +1,71 @@
+<HTML>
+<HEAD>
+<TITLE>Prashanth Search </TITLE>
+
+<SCRIPT LANGUAGE="JAVASCRIPT">
+
+<!-- BEGIN HIDE
+
+	function reviewInput(f)
+		{
+		var goAhead=false;
+		var maxLength=30000;
+		var i;
+
+		if (f.QUERY.value.length<1) {
+		    alert("Please complete all fields");
+		}
+		else {
+                    goAhead = true;
+                }
+		return goAhead;
+
+		}  // END function reviewInput
+
+	//  END HIDE -->
+
+</SCRIPT>
+
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000" VLINK="#0000FF" ALINK="#000000" LINK="#CC0033">
+
+
+<TABLE WIDTH="600" BORDER="0" CELLPADDING="10" CELLSPACING="5">
+
+	<TR><TH BGCOLOR="FF3030" COLSPAN="3"><FONT SIZE="5" COLOR=WHITE FACE="ARIAL,HELVETICA">SEARCH</FONT></TH></TR>
+
+	<TR>
+	        <TD COLSPAN="3">
+		<FONT SIZE="-1" FACE="ARIAL,HELVETICA">
+
+	<TR>
+		<TD COLSPAN="3">
+		<FONT SIZE="-1" FACE="ARIAL,HELVETICA">
+
+		<B>Your query:</B><BR>
+<FORM ENCTYPE="multipart/form-data" METHOD="POST" NAME="queryForm" ACTION="cgi-bin/Query.cgi">
+		<INPUT NAME="QUERY" SIZE="50" MAXLENGTH="100">
+<INPUT TYPE="SUBMIT" VALUE="Submit" onClick="return reviewInput(document.reviewForm);">
+</FORM>
+		
+
+</TD>
+</TR>
+		
+
+
+	<TR>
+		<TD COLSPAN="3" ALIGN="CENTER">
+		<FONT SIZE="-1" FACE="ARIAL,HELVETICA">
+		<!-- BEGIN FOOTER -->
+		<HR SIZE="1" NOSHADE>
+		<P ALIGN="CENTER">
+
+		</FONT>
+		</TD>
+	</TR>
+</TABLE>
+
+</BODY>
+</HTML>
