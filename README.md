@@ -32,20 +32,20 @@ This a serach Engine written in perl. for first 3000 links on a domain. you can 
 <br><br><br><br>
 searching for scholarship<br>
 <br><br><br><br>
-<img src='https://search-engine-perl.googlecode.com/files/scholarship.png' />
+<img src='https://raw.githubusercontent.com/prashanthmadi/Search-Engine-in-Perl/master/scholarship.png' />
 <br><br><br><br>
 Results i got for the scholarship keyword<br>
 <br><br><br><br>
-<img src='https://search-engine-perl.googlecode.com/files/scholarship_result.png' />
+<img src='https://raw.githubusercontent.com/prashanthmadi/Search-Engine-in-Perl/master/scholarship_result.png' />
 <br><br><br><br>
 My extension to cluster results (similar type data in links)<br>
 <br><br><br><br>
-<img src='https://search-engine-perl.googlecode.com/files/scholarship_clust.png' />
+<img src='https://raw.githubusercontent.com/prashanthmadi/Search-Engine-in-Perl/master/scholarship_clust.png' />
 <br><br><br><br>
 My extension to use wordnet to extend query<br>
 <br><br><br><br>
-<img src='https://search-engine-perl.googlecode.com/files/scholarship_wordnet.png' />
+<img src='https://raw.githubusercontent.com/prashanthmadi/Search-Engine-in-Perl/master/scholarship_wordnet.png' />
 <br><br><br><br>
 My extension to use wordnet to extend query based on geographical location. Below is query extension for query <i>paris</i>
 <br><br><br><br>
-<img src='https://search-engine-perl.googlecode.com/files/paris_wordnet.png' />
+<img src='https://raw.githubusercontent.com/prashanthmadi/Search-Engine-in-Perl/master/paris_wordnet.png' />
